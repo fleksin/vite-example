@@ -1,6 +1,5 @@
-import { TomoWalletTgSdkV2, initTomoModal, CONNECT_MAP } from '@tomo-inc/tomo-telegram-sdk'
+import { initTomoModal, CONNECT_MAP } from '@tomo-inc/tomo-telegram-sdk'
 import '@tomo-inc/tomo-telegram-sdk/dist/styles.css'
-new TomoWalletTgSdkV2({ injected: true });
 async function init() {
   await initTomoModal({
     onConnect: (wall: any) => {
