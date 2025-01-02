@@ -1,23 +1,16 @@
 version: 1
-backend:
-  phases:
-    build:
-      commands:
-        - npm ci --cache .npm --prefer-offline
-        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     preBuild:
-      - npm install -g pnpm
-      - pnpm install
+      commands:
+        - npx pnpm install  # 安装依赖
     build:
       commands:
-        - pnpm run build
+        - npx pnpm run build  # 构建项目
   artifacts:
-    baseDirectory: dist
+    baseDirectory: dist  # 指定输出目录
     files:
-      - '**/*'
+      - '**/*'  # 包含所有文件
   cache:
     paths:
-      - .npm/**/*
-      - node_modules/**/*
+      - node_modules/**/*  # 缓存 node_modules
