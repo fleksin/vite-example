@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npx pnpm install -no-frozen-lockfile  # 安装依赖
+        - npx pnpm install # 安装依赖
     build:
       commands:
         - npx pnpm run build  # 构建项目
